@@ -1,14 +1,11 @@
 import { useEffect, useState } from "react";
-import apiClient from "../services/api-client";
+import apiClient, { FetchResponse } from "../services/api-client";
 import { AxiosRequestConfig, CanceledError } from "axios";
 
 
 
-export interface FetchResponse<T> {
-    count: number;
-    results: T[];
-}
 
+//RIP: This module is retired after implementing caching
 const useData = <T>(endpoint: string, requestConfig?: AxiosRequestConfig, deps?: any[]) => {
     const [data, setData] = useState<T[]>([]);
     const [error, setError] = useState("");
