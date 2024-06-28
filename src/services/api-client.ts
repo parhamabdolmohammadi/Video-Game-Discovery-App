@@ -1,4 +1,6 @@
 
+const apiKey = import.meta.env.VITE_API_KEY;
+const apiUrl = import.meta.env.VITE_API_URL;
 
 import axios, { AxiosRequestConfig } from "axios";
 
@@ -9,9 +11,10 @@ export interface FetchResponse<T> {
 }
 
 const axiosInstance =  axios.create({
-  baseURL: "https://api.rawg.io/api",
+  baseURL: apiUrl,
   params: {
-    key: "f69de021dee04366a8eef44e5d15eeeb",
+    key: apiKey,
+    
   },
 });
 
